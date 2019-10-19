@@ -58,12 +58,10 @@ void arrow(unsigned long currentMillis) {
     arrowMillis = currentMillis;
     if (arrowChannelCurrent > 0) {
       digitalWrite(arrowChannelPins[arrowChannelCurrent - 1], LOW);
-      Serial.print("Arrow Off:"); Serial.println(arrowChannelCurrent);
     }
     arrowChannelCurrent++;
     if (arrowChannelCurrent <= arrowChannelPinCount) {
       digitalWrite(arrowChannelPins[arrowChannelCurrent - 1], HIGH);
-      Serial.print("Arrow On:"); Serial.println(arrowChannelCurrent);
     } else {
       arrowState = 0;
     }
@@ -72,8 +70,6 @@ void arrow(unsigned long currentMillis) {
 
 void setup() {
   byte i = 0;
-
-  Serial.begin(9600);
 
   digitalWrite(marqueePin, LOW);
   pinMode(marqueePin, OUTPUT);
